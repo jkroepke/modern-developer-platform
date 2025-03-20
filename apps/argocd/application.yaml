@@ -9,10 +9,9 @@ metadata:
 spec:
   project: default
   sources:
-    - repoURL: ghcr.io'
-      path: 'argoproj/argo-helm'
-      targetRevision: 7.8.13
+    - repoURL: ghcr.io/argoproj/argo-helm
       chart: argo-cd
+      targetRevision: 7.8.13
       helm:
         valueFiles:
           - $values/apps/argocd/values.yaml
