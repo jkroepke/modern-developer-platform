@@ -9,12 +9,12 @@ metadata:
 spec:
   project: default
   sources:
-    - repoURL: https://kubernetes.github.io/ingress-nginx
-      chart: ingress-nginx
+    - repoURL: ghcr.io/argoproj/argo-helm
+      chart: argo-cd
       targetRevision: 7.8.13
       helm:
         valueFiles:
-          - $values/apps/ingress-nginx/values.yaml
+          - $values/apps/argocd/values.yaml
 
     - repoURL: 'https://github.com/jkroepke/modern-developer-platform.git'
       targetRevision: init

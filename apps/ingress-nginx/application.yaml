@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd
+  name: ingress-nginx
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -9,12 +9,12 @@ metadata:
 spec:
   project: default
   sources:
-    - repoURL: ghcr.io/argoproj/argo-helm
-      chart: argo-cd
+    - repoURL: https://kubernetes.github.io/ingress-nginx
+      chart: ingress-nginx
       targetRevision: 7.8.13
       helm:
         valueFiles:
-          - $values/apps/argocd/values.yaml
+          - $values/apps/ingress-nginx/values.yaml
 
     - repoURL: 'https://github.com/jkroepke/modern-developer-platform.git'
       targetRevision: init
