@@ -1,19 +1,26 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: bootstrap
+  name: argo-cd
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
+
 spec:
   project: default
-  source:
-    repoURL: https://github.com/jkroepke/modern-developer-platform.git
-    targetRevision: init
-    path: apps
-    directory:
-      recurse: true
-      include: 'application.yaml'
+  sources:
+    - repoURL: ghcr.io'
+      path: 'argoproj/argo-helm'
+      targetRevision: 7.8.13
+      chart: argo-cd
+      helm:
+        valueFiles:
+          - $values/apps/argocd/values.yaml
+
+    - repoURL: 'https://github.com/jkroepke/modern-developer-platform.git'
+      targetRevision: HEAD
+      ref: values
+
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
