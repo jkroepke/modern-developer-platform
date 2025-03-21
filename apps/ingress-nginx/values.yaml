@@ -2,5 +2,5 @@ controller:
   service:
     enabled: true
     external:
-      enabled: false
+      enabled: true
     type: NodePort
