@@ -1,5 +1,5 @@
 global:
-  domain: argocd.test
+  domain: argocd.local.creativesandbox.de
 
 controller:
   replicas: 1
