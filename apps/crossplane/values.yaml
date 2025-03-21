@@ -1,0 +1,6 @@
+controller:
+  service:
+    enabled: true
+    external:
+      enabled: true
+    type: NodePort
